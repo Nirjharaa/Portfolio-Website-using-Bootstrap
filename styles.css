@@ -1,0 +1,759 @@
+        /* Your existing CSS styles here */
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Variables */
+        :root { 
+          --main-color: #e02f6b;
+          --blue-dark: #18293c;
+          --pink-light: #FFC0CB;
+          --cyan-light: #E0FFFF;
+          --white: #FFFFFF;
+          --white-alpha-40: rgba(255, 255, 255, 0.4);
+          --white-alpha-25: rgba(255, 255, 255, 0.25);
+          --backdrop-filter-blur:blur(5px);
+        }
+
+        /* Global settings */
+        * {
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+          outline: none;
+        }
+
+        ::before,
+        ::after{
+          box-sizing: border-box;
+        }
+
+        body {
+          min-height: 100vh;
+          /* background-color: #ffffff; */
+          background-image: linear-gradient(-225deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%);          
+          font-family: "Poppins", sans-serif;
+          font-weight: 300;
+          font-size: 16px;
+          color: var(--blue-dark);
+          line-height: 1.5;
+          margin: 0;
+          color: var(--blue-dark);
+          padding: 5vh 15px;
+          overflow-x: hidden;
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        body::before{
+          content: '';
+          position: fixed;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          background-color: var(--cyan-light);
+          z-index:  -1;
+          opacity: 0.12;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        h1, h2 {
+          font-weight: 600;
+        }
+
+        h3, h4, h5 {
+          font-weight: 500;
+        }
+
+        img {
+          max-width: 100%;
+          vertical-align: middle;
+        }
+
+        section{
+          background-color: var(--white-alpha-25);
+          border: 2px solid var(--white-alpha-40);
+          min-height: 90vh;
+          border-radius: 20px;
+          box-shadow: 0px 0px 7px var(--white-alpha-40);
+          backdrop-filter: var(--backdrop-filter-blur);
+          margin: 40px;
+        }
+
+        .main{
+          max-width: 1200px;
+          margin: auto;
+        }
+
+        .container{
+          padding: 0 40px;
+          width: 100%;
+        }
+
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+          line-height: 1.5;
+          background-color: var(--white-alpha-25);
+          border: 1px solid var(--white-alpha-40);
+          padding: 10px 28px;
+          display: inline-block;
+          border-radius: 30px;
+          color: var(--main-color);
+          font-weight: 500;
+          text-transform: capitalize;
+          font-family: inherit;
+          font-size: 16px;
+          cursor: pointer;
+          user-select: none;
+          position: relative;
+          overflow: hidden;
+          vertical-align: middle;
+          transition: color 0.3s ease;
+        }
+
+        .btn::before {
+          content: '';
+          position: absolute;
+          top: 0; /* Adjusted to start from the top */
+          left: 0;
+          height: 100%;
+          width: 0; /* Set initial width to 0 */
+          background-color: var(--main-color);
+          z-index: -1;
+          transition: width 0.3s ease;
+        }
+
+        .btn:hover::before {
+          width: 100%; /* Expand width on hover */
+        }
+
+        .btn:hover {
+          color: white;
+        }
+
+        .align-items-center {
+          align-items: center;
+        }
+
+        /* 
+        
+        ----------------------CSS for Navbar---------------------
+        
+        */
+
+        
+        nav {
+          background-color: transparent; /* Transparent background */
+          height: 100vh;
+          width: 40px; /* Adjust the width as needed */
+          padding-left: 18px; /* Add some space on the left */
+          position: fixed;
+          left: 0;
+          top: 0;
+          transition: width 0.5s;
+          overflow: hidden;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+        }
+
+        nav a {
+          color: #fff;
+          text-decoration: none;
+          font-size: 18px;
+          margin: 0;
+        }
+
+        nav:hover {
+          width: 180px;
+        }
+
+        nav ul {
+          list-style-type:none;
+          padding: 0;
+          margin: 0;
+        }
+
+        nav ul li {
+          margin: 10px 0;
+          text-align: center;
+        }
+
+        nav ul li a {
+          color: #ffffff;
+          text-decoration: none;
+          display: block;
+          position: relative;
+        }
+
+        .icon {
+          display: flex;
+          align-items: center;
+          padding: 10px 0px;
+          border-radius: 30px;
+          transition: background-color 0.2s;
+        }
+
+        .icon:hover {
+          padding: 10px;
+          background-color: rgba(255, 255, 255, 0.5); /* Glassmorphism effect */
+          transition: all ease;
+          text-decoration: none;
+          color: var(--blue-dark);
+        }
+
+        .icon i {
+          margin-right: 10px;
+        }
+
+        .icon span {
+          margin-left: 0px;
+        }
+
+        main {
+          margin-left: 80px; /* Adjusted for the width of the sidebar */
+          padding: 18px;
+        }
+
+        header {
+          padding: 17px;
+          position: fixed;
+          width: 0; /* Adjusted for the width of the sidebar */
+          margin-left: 20px; /* Adjusted for the width of the sidebar */
+          z-index: 998; /* Ensure it's above content */
+        }
+
+
+        footer {
+          bottom: 0;
+          position: relative;
+          width: calc(100% - 60px); /* Adjusted for the width of the sidebar */
+          margin-left: 20px; /* Adjusted for the width of the sidebar */
+        }
+
+
+        /* Home Section */
+        .home-section {
+          display: flex;
+          padding: 0;
+        }
+
+        .home-text,
+        .home-img {
+          width: 50%;
+          padding: 15px;
+        }
+
+        .home-text p{
+          font-size: 18px;
+        }
+
+        .home-text h1{
+          font-size: 50px;
+          text-transform: capitalize;
+        }
+
+        .home-text h2{
+          font-size: 20px;
+          text-transform: capitalize;
+          font-weight: 300;
+          margin: 0 0 30px;
+        }
+
+        .home-text .btn {
+          margin: 0 15px 15px 0;
+        }
+
+        .home-img .img-box{
+          max-width: 360px;
+          background-color: var(--white-alpha-25);
+          border-radius: 50%;
+          border: 8px solid var(--white-alpha-25);
+          margin: auto;
+        }
+
+        .home-img .img-box img {
+          width: 100%;
+          border-radius: 50%;
+        }
+
+        /* -------------------About Me CSS------------------- */
+
+        
+       /* ------------------- General Styles ------------------- */
+
+       /* .container2 {
+        max-width: 1200px;
+        margin: auto;
+        padding-right: 25px;
+      } */
+
+      .about-title {
+        text-align: center;
+        padding-top: 10px;
+      }
+
+      .row2 {
+        display: flex;
+        gap: 20px; /* Space between columns */
+        flex-wrap: wrap; /* Allows items to wrap */
+      }
+
+      .about-column {
+        flex: 1; /* Each column takes equal width */
+        display: flex;
+        flex-direction: column; /* Stack items vertically in each column */
+        gap: 10px; /* Space between items in each column */
+      }
+
+      .about-image {
+        flex: 0 1 30%; /* Adjust the flex basis to 30% */
+        text-align: center; /* Center the image */
+        margin: 10px;
+      }
+
+      .about-image img {
+        border: 10px solid var(--white-alpha-40);
+        max-width: 90%;
+        border-radius: 10px; /* Rounded corners */
+      }
+
+      /* ------------------- Navigation Link Styles ------------------- */
+
+      .nav-link {
+        line-height: 1.5;
+        background-color: var(--white-alpha-25);
+        border: 1px solid var(--white-alpha-40);
+        padding: 10px 28px;
+        display: inline-block;
+        border-radius: 30px;
+        color: var(--main-color);
+        margin-top: 10px;
+        font-weight: 500;
+        text-transform: capitalize;
+        font-family: inherit;
+        font-size: 16px;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        overflow: hidden;
+        vertical-align: middle;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
+      }
+
+      .nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        background-color: var(--main-color);
+        z-index: -1;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::before {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        background-color: var(--main-color); /* Change background color on hover */
+        color: white; /* Change text color on hover */
+      }
+
+      /* Added to ensure proper display of active nav-link */
+      .nav-link.active {
+        background-color: var(--main-color);
+        color: white;
+      }
+
+      /* ------------------- Skills Bar Styles ------------------- */
+
+      /* Centering skills bar */
+      .about-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Align items horizontally (center) */
+        gap: 10px; /* Space between items in each column */
+      }
+
+      .skills .bar {
+        position: relative;        
+        background-color: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 7px 10px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        width: 100%; /* Adjusted to match parent width */
+        max-width: 600px; /* Limiting the width of the skills bar */
+      }
+
+      .skills .bar div {
+        position: relative;
+        width: 0;
+        height: 5px;
+        border-radius: 10px;
+        background-color: var(--main-color);
+        border: 1px solid var(--pink-light);
+        box-shadow: 0 0 5px var(--white-alpha-40);
+        animation-duration: 2s; /* Adjusted to match animation duration */
+      }
+
+      /* Adjusted animation keyframes */
+      .skills #python-bar {
+        animation: python-fill 2s forwards;
+      }
+
+      .skills #js-bar {
+        animation: js-fill 2s forwards;
+      }  
+
+      .skills #hcss-bar {
+        animation: hcss-fill 2s forwards;
+      }
+
+      .skills #java-bar {
+        animation: java-fill 2s forwards;
+      }
+
+      .skills #c-bar {
+        animation: c-fill 2s forwards;
+      }
+
+      .skills #mern-bar {
+        animation: mern-fill 2s forwards;
+      }
+
+      .skills #tools-bar {
+        animation: tools-fill 2s forwards;
+      }
+
+      @keyframes python-fill {
+        100% {
+            width: 85%;
+        }
+      }
+
+      @keyframes js-fill {
+        100% {
+            width: 75%;
+        }
+      }
+
+      @keyframes hcss-fill {
+        100% {
+            width: 90%;
+        }
+      }
+
+      @keyframes java-fill {
+        100% {
+            width: 80%;
+        }
+      }
+
+      @keyframes c-fill {
+        100% {
+            width: 80%;
+        }
+      }
+
+      @keyframes mern-fill {
+        100% {
+            width: 70%;
+        }
+      }
+
+      @keyframes tools-fill {
+        100% {
+            width: 90%;
+        }
+      }
+
+      /* ------------------- About Coursework Styles ------------------- */
+
+      .about-coursework ul.coursework-list {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .about-coursework ul.coursework-list li {
+        display: inline;
+        margin-right: 10px;
+      }
+
+      .about-coursework ul.coursework-list li::after {
+        content: "|";
+        margin-left: 10px;
+      }
+
+      .about-coursework ul.coursework-list li:last-child::after {
+        content: "";
+      }
+
+      .about-description,
+      .about-text {
+        margin-bottom: 10px;
+      }
+
+      .about-coursework,
+      .about-experience {
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+        backdrop-filter: var(--backdrop-filter-blur);
+      }
+
+      .coursework-list,
+      .experience-list {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .coursework-list li,
+      .experience-list li > div {
+        margin-bottom: 10px;
+        padding: 0px;
+        border-radius: 30px;
+      }
+
+      .coursework-list {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 10px;
+      }
+
+      .experience-info {
+        margin-left: 10px;
+      }
+
+      .experience-info ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .experience-year,
+      .experience-role,
+      .experience-company {
+        color: var(--main-color);
+      }
+
+      .about-technical-skills p, 
+      .about-experience ul {
+        border-radius: 30px;
+        margin-bottom: 10px;
+      }
+
+      .about-buttons .btn {
+        margin: 10px 10px 20px 0;
+      }
+
+      .about-buttons .btn:last-child {
+        margin-right: 0;
+      }
+
+      @media (max-width: 768px) {
+        .row {
+            flex-direction: column;
+        }
+
+        .about-image, .about-info {
+            flex-basis: 100%;
+        }
+      }
+
+      
+
+        
+        /* Project Section */
+        #project-title {
+            text-align: center;
+        }
+
+        #project {
+            float: left;
+            padding-left: 15px;
+        }
+
+        #projects-para {
+          text-align: center;
+        }
+
+        #project img {
+            width: 300px;
+            height: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: var(--white-alpha-25);
+            border: 8px solid var(--white-alpha-25);
+            margin: auto;
+        }
+
+        #project img:hover {
+          -webkit-transform: scale(1.05); /* For Safari and Chrome */
+          -ms-transform: scale(1.05); /* For IE 9 */
+          transform: scale(1.05); /* Standard syntax */
+          transition: transform 0.3s ease; /* Smooth transition */
+        }
+
+        #row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Testimonials Section */
+        #about {
+          text-align: center;
+          padding: 0px 0px 20px 0px;
+        }
+
+        .card-title{
+            color: var(--main-color); /* Set text color to black */
+            text-align: center;
+        }
+
+        .card-text {
+          color: var(--blue-dark); /* Set text color to black */
+          text-align: center;
+      }
+
+        .card {
+            border: none;
+            background: var(--white-alpha-25);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: var(--backdrop-filter-blur);
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .card:hover {
+            transform:translateY(-5px);
+        }
+
+        .card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 250px;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .star-ratings {
+          margin-top: 2px;
+          text-align: center;
+        }
+        
+        .star {
+          color: gold; /* Gold color for stars */
+          font-size: 25px; /* Adjust font size as needed */
+          margin-right: 5px; /* Adjust spacing between stars */
+            
+        }
+
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+
+      
+   
+
+         /* 
+        ---------------Contact form---------------
+         */
+        #contact {
+            padding: 50px;
+            text-align: center;
+        }
+        
+        #contact-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        #contact-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        #contact-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: start;
+        }
+        
+        #contact-info {
+            flex: 1;
+            margin-right: 30px;
+        }
+        
+        #info-field {
+            margin-bottom: 20px;
+        }
+        
+        #info-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        #social-icons a {
+            text-decoration: none;
+            color: white;
+            margin-right: 10px;
+            /* Icons should be added with font library or images */
+        }
+        
+        #contact-form {
+            flex: 2;
+        }
+        
+        #contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #contact-form input,
+        #contact-form textarea {
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            font-family: "Poppins", sans-serif;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            outline: none;
+            width: 100%;
+        }   
+        
+        
+        
+        /* Responsive layout adjustments */
+        @media (max-width: 768px) {
+            #contact-content {
+                flex-direction: column;
+            }
+        
+            #contact-info {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+        
+        
